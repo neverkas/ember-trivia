@@ -1,0 +1,30 @@
+<div class="row">
+	{{#if controllerContent.isPending}}
+		<div class="center">
+		  <div class="preloader-wrapper big active">
+		    <div class="spinner-layer spinner-blue-only">
+		      <div class="circle-clipper left">
+		        <div class="circle"></div>
+		      </div>
+		    </div>
+		  </div>
+		 </div>
+	{{else}}
+
+      <ul class="collection with-header">		
+        <li class="collection-header"><h4>Responde las preguntas</h4></li>
+		{{#each content as |item|}}
+			{{list-data-item content=item}}
+		{{else}}
+			No se agregaron preguntas
+		{{/each}}		
+      </ul>
+	{{/if}}
+
+	<div class="row">
+		<a class="waves-effect waves-light btn" {{action 'check'}}>Revisar</a>
+	</div>
+
+</div>
+
+{{yield}}
