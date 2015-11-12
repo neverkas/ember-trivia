@@ -1,21 +1,38 @@
+<div class="card-panel">
 
-<li class="collection-item">
-	<p>
+	<div class="row">
 		<b>Pregunta:</b> <span>{{format-question content.question}}</span>
-	</p>
+	</div>
 
-	<p>
-		<b>Respuesta:</b> <span>{{content.answer}}</span>
-	</p>
-	
-	<p>
-	answerCheck: {{answerCheck}}
-	</p>
+	<div class="row">
+		{{#if content.showResult}}
+			{{#unless isCorrect}}
+				<p>
+					<b>Respuesta correcta:</b> <span>{{content.answer}}</span>
+				</p>			
 
-	<div>
-		{{input value=answer class="validate" length="60" placeholder="Escribe la respuesta"}}
-	</div>	
-</li>
+				<p>
+					<b>Tu Respuesta:</b> <span>{{answer}}</span>
+				</p>
+			{{/unless}}
+		{{else}}
+			{{input value=answer class="validate" length="60" placeholder="Escribe la respuesta"}}
+		{{/if}}
+	</div>
+
+	{{#if content.showResult}}
+		<div class="row">
+			<div class="chip {{if isCorrect 'green' 'red'}} lighten-3">
+			    {{#if isCorrect}}
+					<i class="fa fa-check"></i> <span>Correcta</span>
+			    {{else}}
+					<i class="fa fa-close"></i> <span>Incorrecta</span>
+			    {{/if}}
+			</div>
+		</div>
+	{{/if}}
+
+</div>
 
 
 {{yield}}

@@ -10,22 +10,17 @@
 		  </div>
 		 </div>
 	{{else}}
-      <ul class="collection with-header">		
-        <li class="collection-header"><h4>Responde las preguntas</h4></li>
+        <h4>Responde las preguntas</h4>
 		{{#each content as |item|}}
 			{{list-data-item content=item}}
 		{{else}}
 			No se agregaron preguntas
 		{{/each}}		
-      </ul>
 	{{/if}}
 
 	<div class="row">
-		<a class="waves-effect waves-light btn" {{action 'check'}}>Revisar</a>
-	</div>
-
-	<div class="row">
-		Preguntas respondidas {{questionsNum}}
+		<a class="waves-effect waves-light btn" {{action 'checkQuestions'}}>Revisar</a>
+		<a class="waves-effect waves-light btn" {{action 'showAnswers'}}>Mostrar Respuestas</a>
 	</div>
 
 </div>

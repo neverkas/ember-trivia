@@ -6,10 +6,25 @@ export default Ember.Component.extend({
 	controllerContent: null,
 	sorting: null,
 	content: Ember.computed.sort('controllerContent', 'sorting'),
+	showResults: false,
 
 	actions:{
-		check: function(){
-			console.log(this.get('content'))
+		checkQuestions: function(){
+			if(this.get('content')){			
+				this.set('showResults', true);
+				
+				this.get('content').forEach(function(item){
+					item.set('showResult', true);
+				});
+			}
+		},
+
+		showAnswers: function(){
+			if(this.get('content')){			
+				this.get('content').forEach(function(item){
+					item.set('showAnswers', true);
+				});
+			}
 		}
 	},
 
@@ -29,12 +44,12 @@ export default Ember.Component.extend({
 		//console.log(filtered);
 
 		return filtered;
-	}.property('content.[]'),
+	}.property('content.[]', 'content.[].isCorrect'),
 
 	questionsNum: function(){
 		//var test = this.get('content').filterBy('isCorrect');
 		return this.get('content').length;
 
-	}.property('content', 'content.[].isCorrect')
-	
+	}.property('content', 'content.[].isCorrect'),
+
 });
