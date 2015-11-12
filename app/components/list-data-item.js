@@ -1,22 +1,19 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	myAnswer: '',
 	showResult: false,
 	showAnswers: false,
 
 	isCorrect: function(){
 		var isCorrect;
 
-		if(this.get('answer') && this.get('answer').length > 0){
-			isCorrect = (this.get('content.answer') == this.get('answer'));			
+		if(this.get('myAnswer') && this.get('myAnswer').length > 0){
+			isCorrect = (this.get('content.answer') == this.get('myAnswer'));			
 
 			this.set('isCorrect', isCorrect);
 		}
 
 		return isCorrect;
-	}.property('answer', 'content'),
-
-	checkQuestion: function(){
-		//return (this.get('showResult') == true && this.get('isCorrect') == true)
-	}.property('showResult', 'isCorrect')
+	}.property('myAnswer', 'content'),
 });

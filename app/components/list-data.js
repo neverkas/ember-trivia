@@ -9,8 +9,11 @@ export default Ember.Component.extend({
 	showResults: false,
 
 	actions:{
-		checkQuestions: function(){
-			if(this.get('content')){			
+		check: function(){
+			if(this.get('content')){	
+				
+				//this.checkAnswers();
+
 				this.set('showResults', true);
 				
 				this.get('content').forEach(function(item){
@@ -18,14 +21,14 @@ export default Ember.Component.extend({
 				});
 			}
 		},
+	},
 
-		showAnswers: function(){
-			if(this.get('content')){			
-				this.get('content').forEach(function(item){
-					item.set('showAnswers', true);
-				});
-			}
-		}
+	checkAnswers: function(){
+		var questions;
+		//console.log(this.get('content').length);
+		this.get('content').forEach(function(item){
+			console.log(item.get('myAnswer'));
+		});
 	},
 
 	findContent: function(){		 
