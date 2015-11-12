@@ -1,9 +1,19 @@
 
 <li class="collection-item">
-	<span class="title">¿{{content.question}}?</span>
+	<p>
+		<b>Pregunta:</b> <span>{{format-question content.question}}</span>
+	</p>
+
+	<p>
+		<b>Respuesta:</b> <span>{{content.answer}}</span>
+	</p>
+	
+	<p>
+	answerCheck: {{answerCheck}}
+	</p>
 
 	<div>
-		{{input value=answer class="validate" length="60"}}
+		{{input value=answer class="validate" length="60" placeholder="Escribe la respuesta"}}
 	</div>	
 </li>
 

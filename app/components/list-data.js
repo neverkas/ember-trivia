@@ -9,7 +9,7 @@ export default Ember.Component.extend({
 
 	actions:{
 		check: function(){
-			
+			console.log(this.get('content'))
 		}
 	},
 
@@ -26,6 +26,15 @@ export default Ember.Component.extend({
 			filtered = this.get('content');
 		}
 
+		//console.log(filtered);
+
 		return filtered;
-	}.property('content.[]')
+	}.property('content.[]'),
+
+	questionsNum: function(){
+		//var test = this.get('content').filterBy('isCorrect');
+		return this.get('content').length;
+
+	}.property('content', 'content.[].isCorrect')
+	
 });
