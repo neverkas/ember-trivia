@@ -1,6 +1,13 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend({	
+	model: function(){
+		return Ember.RSVP.hash({
+			categories: this.store.findAll('category'),
+			questions: this.store.findAll('item')
+		});
+	},
+
 	actions:{
 		save: function(){
 			var data = this.controller;
@@ -11,6 +18,17 @@ export default Ember.Route.extend({
 			});
 
 			newQuestion.save();
+		},
+
+		addCategory: function(){
+			var data = this.controller;
+
+			var newCategory = this.store.createRecord('category', {
+				title: data.category,
+				items: [],
+			});
+
+			newCategory.save();			
 		}
 	}
 });

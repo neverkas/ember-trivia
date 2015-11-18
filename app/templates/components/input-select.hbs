@@ -1,0 +1,13 @@
+<div class="col s12">
+    <select>
+		<option value="" disabled selected>Choose your option</option>
+
+		{{#each data as |item|}}
+		<option>{{item.title}}</option>
+		{{/each}}
+	</select>
+
+    <label>Categoría</label>
+  </div>
+
+{{yield}}
