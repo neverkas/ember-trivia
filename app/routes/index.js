@@ -28,7 +28,7 @@ export default Ember.Route.extend({
 				items: [],
 			});
 
-			newCategory.save();			
+			newCategory.save();	
 		}
 	}
 });

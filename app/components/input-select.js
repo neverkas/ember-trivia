@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	data: [],
+	placeholder: null,
 
 	changeContent: function(){
 		if(this.data.content.length > 0){
