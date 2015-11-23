@@ -5,6 +5,17 @@ export default Ember.Component.extend({
 	showResult: false,
 	showAnswers: false,
 
+	didInsertElement: function(){
+		//console.log(this);
+	},
+
+	actions:{
+		removeItem: function(item){
+			//console.log(item);
+			item.remove();
+		}
+	},
+
 	isCorrect: function(){
 		var isCorrect;
 

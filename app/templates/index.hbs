@@ -1,13 +1,13 @@
 <div class="row">
-	{{partial 'category/add'}}
+	{{category-add store=store}}
 </div>
 
 <div class="row">
-	{{partial 'question/add'}}
+	{{question-add}}
 </div>
 
 <div class="row">
-	{{list-data modelName='item' store=store}}
+	{{list-data modelName='question' store=store}}
 </div>
 
 {{outlet}}

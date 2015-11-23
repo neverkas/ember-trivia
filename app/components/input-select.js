@@ -1,10 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	data: [],
+	data: null,
 	placeholder: null,
 
+	didInsertElement: function(){
+		console.log(this.data);
+	},
+	
 	changeContent: function(){
+		console.log(this.data);
+
 		if(this.data.content.length > 0){
 			var _self = this;
 

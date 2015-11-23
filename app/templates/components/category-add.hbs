@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col s12 m6">
+	  <div class="card grey lighten-5">
+	    <div class="card-content orange-text">
+	      <span class="card-title">Categoría</span>
+
+			<div class="input-field">
+				{{input value=category class="validate" id="title" length="60"}}
+				<label for="question">Categoría</label>
+			</div>
+	    </div>
+	    <div class="card-action">
+	    	<span {{action 'save'}} class='white-text btn btn-small deep-orange'>Agregar</span>
+	    </div>
+	  </div>
+	</div>
+</div>
+{{yield}}

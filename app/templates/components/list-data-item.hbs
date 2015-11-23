@@ -1,6 +1,8 @@
 <div class="card-panel">
 
 	<div class="row">
+		<button {{action 'removeItem' this}}>Eliminar</button>
+		<b>Categoria:</b> <span>{{content.category.title}}</span>
 		<b>Pregunta:</b> <span>{{format-question content.question}}</span>
 	</div>
 

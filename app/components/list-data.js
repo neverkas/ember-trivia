@@ -11,9 +11,6 @@ export default Ember.Component.extend({
 	actions:{
 		check: function(){
 			if(this.get('content')){	
-				
-				//this.checkAnswers();
-
 				this.set('showResults', true);
 				
 				this.get('content').forEach(function(item){
@@ -24,8 +21,7 @@ export default Ember.Component.extend({
 	},
 
 	checkAnswers: function(){
-		var questions;
-		//console.log(this.get('content').length);
+		//var questions;
 		this.get('content').forEach(function(item){
 			console.log(item.get('myAnswer'));
 		});
