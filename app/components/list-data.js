@@ -1,12 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	store: null,
-	modelName: null,
-	controllerContent: null,
-	sorting: null,
-	content: Ember.computed.sort('controllerContent', 'sorting'),
 	showResults: false,
+
+	content: function(){
+		return this.store.findAll('question');
+	}.property('store'),
 
 	actions:{
 		check: function(){
@@ -23,15 +22,9 @@ export default Ember.Component.extend({
 	checkAnswers: function(){
 		//var questions;
 		this.get('content').forEach(function(item){
-			console.log(item.get('myAnswer'));
+			//console.log(item.get('myAnswer'));
 		});
 	},
-
-	findContent: function(){		 
-		if(this.get('modelName') && this.get('store')){
-			this.set('controllerContent', this.get('store').findAll(this.get('modelName')));
-		}
-	}.on("init"),
 
 	contentFilter: function(){
 		var filtered = [];

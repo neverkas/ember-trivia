@@ -1,13 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	//store: Ember.inject.service('store'),
-	store: null,
-
-	didInsertElement: function(){
-		//console.log(this);
-		//console.log(this.controller);
-	},
+	content: function(){
+		return this.store.findAll('category');
+	}.property('store'),
 
 	actions: {	
 		save: function(){

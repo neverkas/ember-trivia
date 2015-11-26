@@ -4,19 +4,13 @@ export default Ember.Component.extend({
 	data: null,
 	placeholder: null,
 
-	didInsertElement: function(){
-		console.log(this.data);
-	},
-	
 	changeContent: function(){
-		console.log(this.data);
-
-		if(this.data.content.length > 0){
+		if(this.data.isFulfilled){
 			var _self = this;
 
 			Ember.run.next(function(){
 				_self.$('select').material_select();	
 			});
 		}
-	}.observes('data', 'data.content.[]')
+	}.observes('data', 'data.isFulfilled' , 'data.content.[]')
 });

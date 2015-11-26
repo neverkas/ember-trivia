@@ -1,11 +1,13 @@
+{{#if data.isFulfilled}}
 <div class="col s12">
     <select>
 		<option value="" disabled selected>{{placeholder}}</option>
 
-		{{#each data.categories as |item|}}
+		{{#each data.content as |item|}}
 			<option>{{item.title}}</option>
 		{{/each}}
 	</select>
 </div>
+{{/if}}
 
 {{yield}}

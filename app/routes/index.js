@@ -8,7 +8,9 @@ export default Ember.Route.extend({
 			categories: this.store.findAll('category'),
 			questions: this.store.findAll('question')
 		}).then(function(test){
+			console.group("Route Store");
 			console.log(test);
+			console.groupEnd();
 		});
 
 		return store;
